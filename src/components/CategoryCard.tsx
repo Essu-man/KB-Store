@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,17 +9,48 @@ interface CategoryCardProps {
   category: Category;
 }
 
-// Map categories to a representative product image
+// Map categories to a representative product image with reliable fallbacks
 const getCategoryImage = (categoryId: string) => {
-  const categoryProductMap: { [key: string]: { image: string; alt: string } } = {
-    'phones': { image: products.find(p => p.category === 'phones')?.image || 'https://images.unsplash.com/photo-1486946255434-a0292ed5e977?w=400&h=300&fit=crop&crop=center', alt: 'Smartphone' },
-    'home-appliances': { image: products.find(p => p.category === 'home-appliances')?.image || 'https://images.unsplash.com/photo-1571175443453-1a6b0ec1ab1d?w=400&h=300&fit=crop&crop=center', alt: 'Refrigerator' },
-    'accessories': { image: products.find(p => p.category === 'accessories')?.image || 'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=400&h=300&fit=crop&crop=center', alt: 'Phone Case' },
-    'games-and-consoles': { image: products.find(p => p.category === 'games-and-consoles')?.image || 'https://images.unsplash.com/photo-1606144042614-b040ef7f4c06?w=400&h=300&fit=crop&crop=center', alt: 'PS5 Console' },
-    'laptops': { image: products.find(p => p.category === 'laptops')?.image || 'https://images.unsplash.com/photo-1517336714731-4885b0b1b1b1?w=400&h=300&fit=crop&crop=center', alt: 'Laptop' },
-    'speakers-and-audios': { image: products.find(p => p.category === 'speakers-and-audios')?.image || 'https://images.unsplash.com/photo-1589254065878-42c9a3d25a05?w=400&h=300&fit=crop&crop=center', alt: 'Speaker' },
+  // First try to get a product image from the category
+  const categoryProduct = products.find(p => p.category === categoryId);
+  
+  // If we have a product with an image, use it
+  if (categoryProduct?.image) {
+    return { image: categoryProduct.image, alt: categoryProduct.name };
+  }
+  
+  // Fallback to reliable category-specific images
+  const categoryImageMap: { [key: string]: { image: string; alt: string } } = {
+    'phones': { 
+      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Smartphone' 
+    },
+    'home-appliances': { 
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Home Appliance' 
+    },
+    'accessories': { 
+      image: 'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Phone Accessories' 
+    },
+    'games-and-consoles': { 
+      image: 'https://images.unsplash.com/photo-1606144042614-b040ef7f4c06?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Gaming Console' 
+    },
+    'laptops': { 
+      image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Laptop Computer' 
+    },
+    'speakers-and-audios': { 
+      image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop&crop=center&auto=format', 
+      alt: 'Audio Speaker' 
+    },
   };
-  return categoryProductMap[categoryId] || { image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop&crop=center', alt: 'Generic Product' };
+  
+  return categoryImageMap[categoryId] || { 
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop&crop=center&auto=format', 
+    alt: 'Generic Product' 
+  };
 };
 
 export default function CategoryCard({ category }: CategoryCardProps) {
@@ -43,6 +76,11 @@ export default function CategoryCard({ category }: CategoryCardProps) {
               width={200} 
               height={140} 
               className="w-full h-32 object-cover rounded-lg group-hover:brightness-110 transition-all duration-300" 
+              onError={(e) => {
+                // Fallback to a generic placeholder if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop&crop=center&auto=format';
+              }}
             />
             <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-white">
               {productCount} items
