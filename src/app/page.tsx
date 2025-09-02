@@ -1,4 +1,4 @@
-import { categories, featuredDeals } from '@/lib/data';
+import { categories } from '@/lib/data';
 import CategoryCard from '@/components/CategoryCard';
 import FeaturedDeals from '@/components/FeaturedDeals';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,7 @@ export default function Home() {
             <div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Welcome to <br />
-                <span className="text-white">Brandy's Shop</span>
+                <span className="text-white">Brandy&apos;s Shop</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl">
                 Premium electronics and gadgets for the modern lifestyle. 
@@ -25,7 +25,7 @@ export default function Home() {
                 <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
                   Shop Now
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold">
+                <Button size="lg" variant="secondary" className="border border-white text-white hover:bg-white hover:text-black bg-transparent px-8 py-4 text-lg font-semibold">
                   View Categories
                 </Button>
               </div>

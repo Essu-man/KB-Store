@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: "Brandy's Shop - Premium Electronics",
-  description: 'Discover premium electronics and gadgets at Brandy\'s Shop. Your trusted destination for quality tech products.',
+  description: 'Discover premium electronics and gadgets at Brandy&apos;s Shop. Your trusted destination for quality tech products.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <footer className="bg-black text-white py-8 text-center mt-16">
           <div className="max-w-7xl mx-auto px-4">
-            <p className="text-gray-300">© 2025 Brandy's Shop. All rights reserved.</p>
+            <p className="text-gray-300">© 2025 Brandy&apos;s Shop. All rights reserved.</p>
             <p className="text-sm text-gray-400 mt-2">
               Premium electronics for discerning customers
             </p>

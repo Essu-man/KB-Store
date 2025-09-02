@@ -13,7 +13,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="text-3xl font-bold mb-4">Category Not Found</h1>
-        <p className="text-gray-600">The category you're looking for doesn't exist.</p>
+        <p className="text-gray-600">The category you&apos;re looking for doesn&apos;t exist.</p>
       </div>
     );
   }
@@ -47,10 +47,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               {filteredProducts.length} premium products available
             </p>
             <div className="flex gap-3">
-              <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-black">
+              <Button variant="secondary" size="sm" className="border border-white text-white hover:bg-white hover:text-black bg-transparent">
                 Sort by Price
               </Button>
-              <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-black">
+              <Button variant="secondary" size="sm" className="border border-white text-white hover:bg-white hover:text-black bg-transparent">
                 Filter
               </Button>
             </div>
@@ -73,7 +73,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               No products found
             </h3>
             <p className="text-gray-600 mb-8 text-lg">
-              We're working on adding more premium products to this category.
+              We&apos;re working on adding more premium products to this category.
             </p>
             <Link href="/">
               <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3">
