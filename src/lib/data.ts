@@ -25,7 +25,7 @@ export const categories: Category[] = [
     id: 'phones',
     name: 'phones',
     displayName: 'Phones & Tablets',
-    icon: '📱',
+    icon: 'Smartphone',
     subcategories: ['Smartphones', 'Tablets', 'Phone Accessories', 'Chargers & Cables'],
     description: 'Latest smartphones, tablets, and mobile accessories'
   },
@@ -33,7 +33,7 @@ export const categories: Category[] = [
     id: 'home-appliances',
     name: 'home-appliances',
     displayName: 'Home Appliances',
-    icon: '🏠',
+    icon: 'Home',
     subcategories: ['Kitchen Appliances', 'Cleaning', 'Climate Control', 'Laundry'],
     description: 'Essential home appliances for modern living'
   },
@@ -41,7 +41,7 @@ export const categories: Category[] = [
     id: 'accessories',
     name: 'accessories',
     displayName: 'Accessories',
-    icon: '🎧',
+    icon: 'Headphones',
     subcategories: ['Cases & Covers', 'Cables & Chargers', 'Screen Protectors', 'Stylus & Pens'],
     description: 'Essential accessories for your devices'
   },
@@ -49,7 +49,7 @@ export const categories: Category[] = [
     id: 'games-and-consoles',
     name: 'games-and-consoles',
     displayName: 'Gaming & Consoles',
-    icon: '🎮',
+    icon: 'Gamepad2',
     subcategories: ['Gaming Consoles', 'Video Games', 'Gaming Accessories', 'VR Equipment'],
     description: 'Gaming consoles, games, and accessories'
   },
@@ -57,7 +57,7 @@ export const categories: Category[] = [
     id: 'laptops',
     name: 'laptops',
     displayName: 'Laptops & Computers',
-    icon: '💻',
+    icon: 'Laptop',
     subcategories: ['Laptops', 'Desktops', 'Monitors', 'Computer Accessories'],
     description: 'Laptops, desktops, and computer accessories'
   },
@@ -65,7 +65,7 @@ export const categories: Category[] = [
     id: 'speakers-and-audios',
     name: 'speakers-and-audios',
     displayName: 'Speakers & Audio',
-    icon: '🔊',
+    icon: 'Volume2',
     subcategories: ['Bluetooth Speakers', 'Headphones', 'Sound Systems', 'Audio Accessories'],
     description: 'High-quality audio equipment and accessories'
   }
